@@ -1,0 +1,26 @@
+{
+  "name": "cac",
+  "version": "1.0.0",
+  "description": "renovation cac",
+  "main": "index.js",
+  "dependencies": {
+    "vitest": "^0.17.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuixueshe/cac.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuixueshe/cac/issues"
+  },
+  "homepage": "https://github.com/cuixueshe/cac#readme",
+  "directories": {
+    "test": "tests"
+  }
+}
