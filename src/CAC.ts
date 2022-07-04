@@ -1,3 +1,9 @@
+
+
+interface OptionConfig {
+    default?: any
+    type?: any[]
+  }
 class CAC{
     parse(rawArrs: string[]) {
 
@@ -20,6 +26,11 @@ class CAC{
         }
     
         return result
+    }
+
+
+    option(rawName: string, description: string, config?: OptionConfig ) {
+
     }
 }
 
