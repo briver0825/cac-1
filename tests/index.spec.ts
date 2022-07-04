@@ -1,7 +1,7 @@
 import { test, expect } from "vitest";
 import { cac } from "../src";
 
-test.todo("basic-usage", () => {
+test("basic-usage", () => {
   const cli = cac();
 
   cli.option("--type <type>", "Choose a project type");
