@@ -1,37 +1,39 @@
+import mri from "mri";
+import { Command } from "./Command";
+import { Option } from "./Option";
 
-
-interface OptionConfig {
-    default?: any
-    type?: any[]
+class CAC {
+  private globalCommand: Command;
+  constructor() {
+    this.globalCommand = new Command();
   }
-class CAC{
-    parse(rawArrs: string[]) {
+  option(name: string, description: string) {
+    this.globalCommand.option(name, description);
+  }
 
-        const len = rawArrs.length
-    
-        const result: { args: string[], options: { string: string } | {} } = {
-            args: [],
-            options: {}
-        }
-    
-        for (let i = 0; i < len; i++) {
-            const val = rawArrs[i];
-            if (val.startsWith("--")) {
-                const key = val.substring(2)
-                const nextVal = rawArrs[++i]
-                result.options[key] = nextVal
-            } else {
-                result.args.push(val)
-            }
-        }
-    
-        return result
-    }
+  parse(rawArrs: string[]) {
+    //1. 解析 rawArrs 从里面拿出值来
+    //2. 从 globalCommand 里面拿出 option 去 rawArrs 里面有没有
+    //3. 有的话 那么就赋值输出给 options
+    //4. todo 没有的话 那么就进入到 args 里面
+    const mriResult = mri(rawArrs);
 
+    const options = this.globalCommand.options.reduce(
+      (options, option: Option) => {
+        options[option.name] = mriResult[option.name];
+        return options;
+      },
+      {}
+    );
 
-    option(rawName: string, description: string, config?: OptionConfig ) {
-
-    }
+    return {
+      args: [],
+      options: {
+        ...options,
+        "--": [],
+      },
+    };
+  }
 }
 
-export default CAC
+export default CAC;
