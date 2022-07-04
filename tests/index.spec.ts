@@ -1,13 +1,21 @@
-import { test } from "vitest";
+import { test, expect } from "vitest";
+import { cac } from "../src";
 
 test.todo("basic-usage", () => {
-  const cli = require("cac")();
+  const cli = cac();
 
   cli.option("--type <type>", "Choose a project type", {
     default: "node",
   });
 
-  const parsed = cli.parse();
-
-  console.log(JSON.stringify(parsed, null, 2));
+  // process.argv
+  // 前2个值不需要关心
+  const parsed = cli.parse(["", "", "--type", "foo"]);
+  expect(parsed).toEqual({
+    args: [],
+    options: {
+      type: "foo",
+      "--": [],
+    },
+  });
 });
