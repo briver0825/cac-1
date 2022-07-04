@@ -1,1 +1,3 @@
-export * from './parse'
+import CAC from "./CAC"
+
+export const cac = () => new CAC()

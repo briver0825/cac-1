@@ -1,18 +1,21 @@
 import { expect, test } from "vitest";
 
-import { parse } from '../src'
+import { cac } from '../src'
 
 test("init", () => {
   expect(1 + 1).toEqual(2);
 });
 
 test("hapy path", () => {
+
+  const cli = cac()
+
   const rawArrs1 = [
     "--type",
     "foo",
     "bar"
   ]
-  expect(parse(rawArrs1)).toEqual({
+  expect(cli.parse(rawArrs1)).toEqual({
     args: [
       "bar"
     ],
@@ -28,7 +31,7 @@ test("hapy path", () => {
     "--bar",
     "bar"
   ]
-  expect(parse(rawArrs2)).toEqual({
+  expect(cli.parse(rawArrs2)).toEqual({
     args: ["name"],
     options: {
       "type": "foo",
