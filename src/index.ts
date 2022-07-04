@@ -1,1 +1,1 @@
-console.log("entry point")
+export * from './parse'

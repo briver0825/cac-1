@@ -1,32 +1,22 @@
-function parse(rawArrs) {
+export function parse(rawArrs: string[]) {
 
     const len = rawArrs.length
 
-    const result = {
+    const result: { args: string[], options: { string: string } | {} } = {
         args: [],
-        options: {
-
-        }
-    } 
+        options: {}
+    }
 
     for (let i = 0; i < len; i++) {
         const val = rawArrs[i];
         if (val.startsWith("--")) {
             const key = val.substring(2)
-            console.log("-----------",key);
-            
             const nextVal = rawArrs[++i]
             result.options[key] = nextVal
-        }else{
+        } else {
             result.args.push(val)
         }
     }
 
     return result
 }
-
-console.log(parse([
-    "--type",
-    "foo",
-    "bar"
-  ]));
