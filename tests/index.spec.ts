@@ -38,7 +38,7 @@ test("type value should be equal to node", () => {
 });
 
 
-test.todo('square Brackets in option name', () => {
+test('square Brackets in option name', () => {
   const cli = cac();
   cli.option('--name [name]', 'Provide your name')
 
@@ -53,5 +53,3 @@ test.todo('square Brackets in option name', () => {
     },
   });
 });
-
-

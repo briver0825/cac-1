@@ -13,7 +13,7 @@ export class Option {
 
     this.config = Object.assign({},config);
 
-    const resolvedName = name.match(/--(\w+) \<(\w+)\>/)?.[1];
+    const resolvedName = name.match(/--(\w+) [<[].+/)?.[1]
     if(resolvedName) this.name = resolvedName
   }
 }
