@@ -9,6 +9,7 @@ export class Option {
   config: OptionConfig
   constructor (name: string, description: string, config?: OptionConfig) {
     this.rawName = name
+
     this.description = description
 
     this.config = Object.assign({}, config)
