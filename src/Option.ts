@@ -1,6 +1,6 @@
 interface OptionConfig {
-  default?: any;
-  type?: any[];
+  default?: any
+  type?: any[]
 }
 export class Option {
   name: string = ''
