@@ -21,7 +21,11 @@ class CAC {
 
     const options = this.globalCommand.options.reduce(
       (options, option: Option) => {
-        options[option.name] = mriResult[option.name] || option.config.default
+        const key =
+          option.name in mriResult
+            ? option.name
+            : option.name.replace(/([A-Z])/, (_, $1) => `-${$1.toLowerCase()}`)
+        options[option.name] = mriResult[key] || option.config.default
         return options
       },
       {}
