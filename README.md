@@ -22,7 +22,7 @@
 
 ## 分析package.json 字段
 
-```JSON
+```javascript
 "name"            // 名字
 "version"         // 版本
 "description"     // 描述
@@ -43,7 +43,7 @@
 
 ## 写一个库的 README 需要哪几个部分？
 
-```JSON
+```javascript
 Title 
 Description
 Installation
@@ -56,6 +56,8 @@ guide
 ## 流程图
 
 [点这里🖱](./flow.drawio )
+
+![](./flow.png)
 
 ## 如何实现链式调用的API
 
